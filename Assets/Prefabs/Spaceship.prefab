@@ -132,6 +132,7 @@ MonoBehaviour:
   propulsionPower: 5
   fuelDepletingSpeed: 20
   fuelReplenishingSpeed: 15
+  additionalSpeed: 0
   orbitPoint: {fileID: 0}
 --- !u!50 &3961553541182754928
 Rigidbody2D:
