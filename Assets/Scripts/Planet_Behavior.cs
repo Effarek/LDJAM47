@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Planet_Behavior : MonoBehaviour
 {
-    public GameObject OrbitPoint;
+    public GameObject orbitPoint;
+
+    public float rotationSpeed;
+    public float orbitSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +18,6 @@ public class Planet_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(OrbitPoint.transform.position, Vector3.forward, 15 * Time.deltaTime);
+        transform.RotateAround(orbitPoint.transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 }

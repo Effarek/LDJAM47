@@ -10,12 +10,14 @@ public class Spaceship_Behavior : MonoBehaviour
     public float fuelDepletingSpeed = 20.0f;
     public float fuelReplenishingSpeed = 10.0f;
 
-    public GameObject OrbitPoint;
+    public GameObject orbitPoint;
+
+    private Planet_Behavior planetBehavior;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetOrbite(orbitPoint);
     }
 
     // Update is called once per frame
@@ -23,17 +25,24 @@ public class Spaceship_Behavior : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space) && fuelLevel > 0)
         {
-            transform.RotateAround(OrbitPoint.transform.position, Vector3.back, orbitSpeed * PropulsionPower * Time.deltaTime);
+            transform.RotateAround(orbitPoint.transform.position, Vector3.back, planetBehavior.orbitSpeed * PropulsionPower * Time.deltaTime);
             fuelLevel -= fuelDepletingSpeed * Time.deltaTime;
         }
         else
         {
-            transform.RotateAround(OrbitPoint.transform.position, Vector3.back, orbitSpeed * Time.deltaTime);
+            transform.RotateAround(orbitPoint.transform.position, Vector3.back, planetBehavior.orbitSpeed * Time.deltaTime);
             if (fuelLevel < 100 && !Input.GetKey(KeyCode.Space))
             {
                 fuelLevel += fuelReplenishingSpeed * Time.deltaTime;
             }          
         }
         
+    }
+
+    void SetOrbite(GameObject newPlanet)
+    {
+        orbitPoint = newPlanet;
+        planetBehavior = orbitPoint.GetComponent<Planet_Behavior>();
+        transform.parent = orbitPoint.transform;
     }
 }
