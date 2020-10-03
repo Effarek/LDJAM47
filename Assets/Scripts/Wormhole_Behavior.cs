@@ -67,4 +67,40 @@ public class Wormhole_Behavior : MonoBehaviour
             travellers.Remove(collision.gameObject);
         }
     }
+
+
+    // Ajouter cette coroutine au script de Camera
+    IEnumerator Screenshake()
+    {
+        float timeElasped = 0f;
+
+        float shakeSpeed = 80f;
+        float shakeStrength = 0.2f;
+
+        Vector3 originalPosition = transform.position;
+
+        while (timeElasped < 0.5f)
+        {
+            timeElasped += Time.deltaTime;
+
+            if ((int)(timeElasped * 100) % 2 == 0)
+            {
+                transform.position = originalPosition
+                                    + new Vector3(Mathf.Sin(Time.time * shakeSpeed) * shakeStrength,
+                                                    Mathf.Sin(Time.time * shakeSpeed) * shakeStrength,
+                                                    0);
+            }
+            else
+            {
+                transform.position = originalPosition
+                                    + new Vector3(-(Mathf.Sin(Time.time * shakeSpeed)) * shakeStrength,
+                                                    (Mathf.Sin(Time.time * shakeSpeed)) * shakeStrength,
+                                                    0);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.position = originalPosition;
+    }
 }
