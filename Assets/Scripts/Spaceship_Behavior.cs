@@ -11,6 +11,8 @@ public class Spaceship_Behavior : MonoBehaviour
     public float additionalSpeed = 0f;
 
     public GameObject orbitPoint;
+    public GameObject camera;
+    public Vector3 cameraOffset = new Vector3(0,0,10);
 
     private Planet_Behavior planetBehavior;
 
