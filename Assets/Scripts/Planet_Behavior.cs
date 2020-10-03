@@ -19,5 +19,6 @@ public class Planet_Behavior : MonoBehaviour
     void Update()
     {
         transform.RotateAround(orbitPoint.transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
 }

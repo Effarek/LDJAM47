@@ -17,7 +17,10 @@ public class Spaceship_Behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetOrbite(orbitPoint);
+        if (orbitPoint)
+        {
+            SetOrbite(orbitPoint);
+        }
     }
 
     // Update is called once per frame
@@ -42,8 +45,10 @@ public class Spaceship_Behavior : MonoBehaviour
             fuelLevel += fuelReplenishingSpeed * Time.deltaTime;
         }
 
-        transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + additionalSpeed) * Time.deltaTime);
-
+        if (planetBehavior)
+        {
+            transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + additionalSpeed) * Time.deltaTime);
+        }
     }
 
     void SetOrbite(GameObject newPlanet)
