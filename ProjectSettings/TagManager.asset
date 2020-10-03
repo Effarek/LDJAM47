@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Planet
   - Sun
+  - Orbit
+  - Wormhole
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - Sun
   - Ship
-  - 
-  - 
+  - Wormhole
+  - Planet
   - 
   - 
   - 

@@ -55,7 +55,7 @@ public class Spaceship_Behavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Planet"))
+        if (collision.gameObject.CompareTag("Orbit"))
         {
             SetOrbite(collision.gameObject.transform.parent.gameObject);
         }
