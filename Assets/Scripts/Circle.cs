@@ -14,6 +14,7 @@ public class Circle : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        SetColor(Color.green);
         SetupCircle();
     }
 
@@ -33,6 +34,12 @@ public class Circle : MonoBehaviour
         }
     }
 
+    public void SetColor(Color color)
+    {
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+    }
+
 #if UNITY_EDITOR
     //private void OnDrawGizmos()
     //{
@@ -42,7 +49,7 @@ public class Circle : MonoBehaviour
     //    Vector3 oldPos = Vector3.zero;
     //    for (int i = 0; i < vertexCount + 1; i++)
     //    {
-    //        Vector3 pos = new Vector3(xRadius * Mathf.Cos(theta), yRadius * Mathf.Sin(theta), 0f);
+    //        Vector3 pos = new Vector3(transform.lossyScale.x * xRadius * Mathf.Cos(theta), transform.lossyScale.y * yRadius * Mathf.Sin(theta), 0f);
     //        Gizmos.DrawLine(oldPos, transform.position + pos);
     //        oldPos = transform.position + pos;
 
