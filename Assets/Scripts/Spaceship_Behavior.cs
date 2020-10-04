@@ -19,6 +19,8 @@ public class Spaceship_Behavior : MonoBehaviour
     public GameObject orbitPoint;
     public GameObject camera;
     public Vector3 cameraOffset = new Vector3(0,0,10);
+    public AudioClip thrusterGood;
+    public AudioClip thrusterBad;
 
     public Color currentOrbitColor;
     public Color targetOrbitColor;
@@ -29,6 +31,7 @@ public class Spaceship_Behavior : MonoBehaviour
     private GameObject target;
     private ParticleSystem system;
     private Transform fuelBarParent;
+    private bool overHeat = false;
 
 
     // Start is called before the first frame update
@@ -59,12 +62,12 @@ public class Spaceship_Behavior : MonoBehaviour
 
         if(fuelLevel > 0f)
         {
-            if (Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxis("Vertical") != 0 && !overHeat)
             {
                 additionalSpeed = Input.GetAxis("Vertical") * propulsionPower;
                 fuelLevel -= fuelDepletingSpeed * Time.deltaTime;
 
-                // Thruster sound
+                // Play thruster sound
                 thrusterSource.volume = math.min(1, thrusterSource.volume + soundFadout * Time.deltaTime);
                 if (!thrusterSource.isPlaying)
                 {
@@ -84,28 +87,38 @@ public class Spaceship_Behavior : MonoBehaviour
                 {
                     system.Stop();
                 }
+                // Fadeout and stop thruster sound
+                thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * 2 * Time.deltaTime);
+                if (thrusterSource.volume == 0)
+                {
+                    thrusterSource.Stop();
+                }
                 additionalSpeed = 0;
+                // Stop over heat
+                if (fuelLevel > 30f)
+                {
+                    overHeat = false;
+                }
             }
         }
         else
         {
             additionalSpeed = 0;
             fuelLevel = 0;
+            overHeat = true;
         }
 
-        if(fuelLevel < 100 && Input.GetAxis("Vertical") == 0)
+        if(fuelLevel < 100 && (Input.GetAxis("Vertical") == 0 || overHeat))
         {
             fuelLevel += fuelReplenishingSpeed * Time.deltaTime;
         }
 
-        // Fadeout sound
-        if (Input.GetAxis("Vertical") == 0)
-        {
-            thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * 2 * Time.deltaTime);
-            if (thrusterSource.volume == 0)
-            {
-                thrusterSource.Stop();
-            }
+        // Change thruster sound
+        if (fuelLevel <= 30 && thrusterSource.clip != thrusterBad){
+            thrusterSource.clip = thrusterBad;
+        }
+        else if (fuelLevel > 30 && thrusterSource.clip != thrusterGood){
+            thrusterSource.clip = thrusterGood;
         }
 
         if (planetBehavior)
@@ -122,7 +135,18 @@ public class Spaceship_Behavior : MonoBehaviour
         fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
         // TODO : On laisse ou pas  ???
         //fuelBarParent.eulerAngles = transform.eulerAngles;
-        fuelBarFull.fillAmount = fuelLevel / 100f;
+        var fuelratio = fuelLevel / 100f;
+        fuelBarFull.fillAmount = fuelratio;
+        if (overHeat)
+        {
+            fuelBarFull.color = new Color(1, 0, 0, 1);
+        }
+        else
+        {
+            fuelBarFull.color = new Color(1, fuelratio, fuelratio, 1);
+        }
+
+        fuelBarParent.gameObject.SetActive(fuelLevel != 100f);
     }
 
     void SetOrbite(GameObject newPlanet)
