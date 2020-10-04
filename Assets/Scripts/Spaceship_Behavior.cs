@@ -37,15 +37,16 @@ public class Spaceship_Behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (orbitPoint)
-        {
-            SetOrbite(orbitPoint);
-        }
         var audioSources = GetComponents<AudioSource>();
         thrusterSource = audioSources[0];
         transferSource = audioSources[1];
         system = GetComponentInChildren<ParticleSystem>();
         fuelBarParent = fuelBarFull.transform.parent;
+
+        if (orbitPoint)
+        {
+            SetOrbite(orbitPoint);
+        }
     }
 
     // Update is called once per frame
