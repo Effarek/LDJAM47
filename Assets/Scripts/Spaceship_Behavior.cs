@@ -165,6 +165,10 @@ public class Spaceship_Behavior : MonoBehaviour
         // Move to next orbit
         orbitPoint = newPlanet;
         planetBehavior = orbitPoint.GetComponent<Planet_Behavior>();
+        if (planetBehavior)
+        {
+            planetBehavior.isWaiting = false;
+        }
         transform.parent = orbitPoint.transform;
 
         Circle newOrbit = orbitPoint.GetComponentInChildren<Circle>();

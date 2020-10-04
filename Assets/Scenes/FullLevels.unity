@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
+      propertyPath: waiting
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
       value: Mars
@@ -1759,6 +1763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 620329409}
   - component: {fileID: 620329408}
+  - component: {fileID: 620329410}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1773,7 +1778,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620329407}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
@@ -1876,6 +1881,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620329410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620329407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15e8c3f5791a2947ab157bf998abebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 851765582}
+  musics:
+  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
+  respawnPositions: []
 --- !u!1 &626921569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,11 +2192,11 @@ PrefabInstance:
       objectReference: {fileID: 997328126}
     - target: {fileID: 7968727522826392863, guid: c03078151481c474e86aaf1210325b4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7968727522826392863, guid: c03078151481c474e86aaf1210325b4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7968727522826392863, guid: c03078151481c474e86aaf1210325b4f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2953,6 +2974,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7968727522826392860, guid: c03078151481c474e86aaf1210325b4f, type: 3}
   m_PrefabInstance: {fileID: 720380735}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &851765582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7968727522826392862, guid: c03078151481c474e86aaf1210325b4f, type: 3}
+  m_PrefabInstance: {fileID: 720380735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851765576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42970925a8db5174ab76c0b8298caac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855366223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9058157940587356228, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
@@ -3828,11 +3860,15 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 15
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
+      propertyPath: isWaiting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name

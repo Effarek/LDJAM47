@@ -8,6 +8,7 @@ public class Planet_Behavior : MonoBehaviour
 
     public float rotationSpeed;
     public float orbitSpeed;
+    public bool isWaiting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class Planet_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(orbitPoint.transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+        var finalSpeed = isWaiting ? 0 : rotationSpeed;
+        transform.RotateAround(orbitPoint.transform.position, Vector3.forward, finalSpeed * Time.deltaTime);
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
 }
