@@ -246,7 +246,7 @@ MonoBehaviour:
   angle: 0
   xRadius: 3.555
   yRadius: 3.555
-  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  defaultColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.78431374}
 --- !u!1 &8177239404038940459
 GameObject:
   m_ObjectHideFlags: 0
