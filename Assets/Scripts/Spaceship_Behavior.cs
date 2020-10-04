@@ -12,7 +12,7 @@ public class Spaceship_Behavior : MonoBehaviour
     public float additionalSpeed = 0f;
     public float soundFadout = 5.0f;
 
-    public Image fuelBar;
+    public Image fuelBarFull;
     public GameObject orbitPoint;
     public GameObject camera;
     public Vector3 cameraOffset = new Vector3(0,0,10);
@@ -36,7 +36,7 @@ public class Spaceship_Behavior : MonoBehaviour
         }
         thrusterSource = GetComponent<AudioSource>();
         system = GetComponentInChildren<ParticleSystem>();
-        fuelBarParent = fuelBar.transform.parent;
+        fuelBarParent = fuelBarFull.transform.parent;
     }
 
     // Update is called once per frame
@@ -107,7 +107,7 @@ public class Spaceship_Behavior : MonoBehaviour
 
         fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
         fuelBarParent.eulerAngles = transform.eulerAngles;
-        fuelBar.fillAmount = fuelLevel / 100f;
+        fuelBarFull.fillAmount = fuelLevel / 100f;
     }
 
     void SetOrbite(GameObject newPlanet)
