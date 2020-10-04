@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Unity.Mathematics;
+using UnityEngine.UI;
+using JetBrains.Annotations;
 
 public class Spaceship_Behavior : MonoBehaviour
 {
@@ -14,8 +16,12 @@ public class Spaceship_Behavior : MonoBehaviour
     public GameObject camera;
     public Vector3 cameraOffset = new Vector3(0,0,10);
 
+    public Color currentOrbitColor;
+    public Color targetOrbitColor;
+
     private Planet_Behavior planetBehavior;
     private AudioSource thrusterSource;
+    private GameObject target;
     
 
     // Start is called before the first frame update
@@ -31,6 +37,16 @@ public class Spaceship_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(orbitPoint);
+        // Change orbit
+        if (target)
+        {
+            if (Input.GetButton("Fire1") || orbitPoint == null)
+            {
+                SetOrbite(target);
+            }
+        }
+
         if(fuelLevel > 0)
         {
             if (Input.GetAxis("Vertical") != 0)
@@ -74,21 +90,49 @@ public class Spaceship_Behavior : MonoBehaviour
 
     void SetOrbite(GameObject newPlanet)
     {
+        // Set old orbit color
+        Circle oldOrbit = orbitPoint.GetComponentInChildren<Circle>();
+        if (oldOrbit)
+        {
+            oldOrbit.SetColor(oldOrbit.defaultColor);
+        }
+
+        // Move to next orbit
         orbitPoint = newPlanet;
         planetBehavior = orbitPoint.GetComponent<Planet_Behavior>();
         transform.parent = orbitPoint.transform;
+
+        // Update orbits color
+        Circle newOrbit = orbitPoint.GetComponentInChildren<Circle>();
+        if (newOrbit)
+        {
+            newOrbit.SetColor(currentOrbitColor);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Orbit"))
         {
-            SetOrbite(collision.gameObject.transform.parent.gameObject);
+            target = collision.gameObject.transform.parent.gameObject;
+            Circle targetOrbit = collision.gameObject.GetComponent<Circle>();
+            if (targetOrbit)
+            {
+                targetOrbit.SetColor(targetOrbitColor);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
+        if (collision.gameObject.transform.parent.gameObject == target)
+        {
+            Circle targetOrbit = collision.gameObject.GetComponent<Circle>();
+            if (targetOrbit)
+            {
+                targetOrbit.SetColor(targetOrbit.defaultColor);
+            }
+            target = null;
+        }
     }
 }

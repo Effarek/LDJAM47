@@ -9,7 +9,7 @@ public class Circle : MonoBehaviour
     public float xRadius;
     public float yRadius;
 
-    public Color color;
+    public Color defaultColor;
 
 
     private LineRenderer lineRenderer;
@@ -17,7 +17,7 @@ public class Circle : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        SetColor(color);
+        SetColor(defaultColor);
         SetupCircle();
     }
 

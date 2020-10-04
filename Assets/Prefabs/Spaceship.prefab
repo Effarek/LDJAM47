@@ -134,9 +134,12 @@ MonoBehaviour:
   fuelDepletingSpeed: 20
   fuelReplenishingSpeed: 15
   additionalSpeed: 0
+  soundFadout: 5
   orbitPoint: {fileID: 0}
   camera: {fileID: 0}
   cameraOffset: {x: 0, y: 0, z: 10}
+  currentOrbitColor: {r: 0.109419025, g: 0.7075472, b: 0.07008722, a: 0.7019608}
+  targetOrbitColor: {r: 0.8396226, g: 0.13861692, b: 0.13861692, a: 0.84313726}
 --- !u!50 &3961553541182754928
 Rigidbody2D:
   serializedVersion: 4
