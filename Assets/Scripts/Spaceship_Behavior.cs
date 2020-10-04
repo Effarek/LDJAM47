@@ -12,6 +12,7 @@ public class Spaceship_Behavior : MonoBehaviour
     public float additionalSpeed = 0f;
     public float soundFadout = 5.0f;
 
+    public Image fuelBar;
     public GameObject orbitPoint;
     public GameObject camera;
     public Vector3 cameraOffset = new Vector3(0,0,10);
@@ -22,7 +23,9 @@ public class Spaceship_Behavior : MonoBehaviour
     private Planet_Behavior planetBehavior;
     private AudioSource thrusterSource;
     private GameObject target;
-    
+    private ParticleSystem system;
+    private Transform fuelBarParent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,8 @@ public class Spaceship_Behavior : MonoBehaviour
             SetOrbite(orbitPoint);
         }
         thrusterSource = GetComponent<AudioSource>();
+        system = GetComponentInChildren<ParticleSystem>();
+        fuelBarParent = fuelBar.transform.parent;
     }
 
     // Update is called once per frame
@@ -47,17 +52,31 @@ public class Spaceship_Behavior : MonoBehaviour
             }
         }
 
-        if(fuelLevel > 0)
+        if(fuelLevel > 0f)
         {
             if (Input.GetAxis("Vertical") != 0)
             {
                 additionalSpeed = Input.GetAxis("Vertical") * propulsionPower;
                 fuelLevel -= fuelDepletingSpeed * Time.deltaTime;
+
                 // Thruster sound
                 thrusterSource.volume = math.min(1, thrusterSource.volume + soundFadout * Time.deltaTime);
                 if (!thrusterSource.isPlaying)
                 {
                     thrusterSource.Play();
+                }
+                // Play fire particles
+                if (!system.isPlaying)
+                {
+                    system.Play();
+                }
+            }
+            else
+            {
+                // Stop fire particles
+                if (system.isPlaying)
+                {
+                    system.Stop();
                 }
             }
         }
@@ -86,6 +105,10 @@ public class Spaceship_Behavior : MonoBehaviour
         {
             transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + additionalSpeed) * Time.deltaTime);
         }
+
+        fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
+        fuelBarParent.eulerAngles = transform.eulerAngles;
+        fuelBar.fillAmount = fuelLevel / 100f;
     }
 
     void SetOrbite(GameObject newPlanet)
