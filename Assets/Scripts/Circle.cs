@@ -9,12 +9,15 @@ public class Circle : MonoBehaviour
     public float xRadius;
     public float yRadius;
 
+    public Color color;
+
+
     private LineRenderer lineRenderer;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        SetColor(Color.green);
+        SetColor(color);
         SetupCircle();
     }
 

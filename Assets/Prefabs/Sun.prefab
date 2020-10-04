@@ -278,3 +278,4 @@ MonoBehaviour:
   angle: 0
   xRadius: 3.555
   yRadius: 3.555
+  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.78431374}

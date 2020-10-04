@@ -68,7 +68,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   angle: 0
   xRadius: 3.555
   yRadius: 3.555
+  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.78431374}
 --- !u!1 &1987391361567441328
 GameObject:
   m_ObjectHideFlags: 0

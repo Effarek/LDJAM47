@@ -150,7 +150,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 498d507c62e6ed3459682472cd4f2bca, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,8 +194,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.5754717, g: 0.5673282, b: 0.5673282, a: 0.49019608}
+      key1: {r: 0.5764706, g: 0.5686275, b: 0.5686275, a: 0.49019608}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -242,10 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vertexCount: 40
-  lineWidth: 0.2
+  lineWidth: 0.1
   angle: 0
   xRadius: 3.555
   yRadius: 3.555
+  color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
 --- !u!1 &8177239404038940459
 GameObject:
   m_ObjectHideFlags: 0
