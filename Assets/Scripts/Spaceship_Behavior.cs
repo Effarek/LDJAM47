@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Unity.Mathematics;
 
 public class Spaceship_Behavior : MonoBehaviour
 {
@@ -9,12 +8,15 @@ public class Spaceship_Behavior : MonoBehaviour
     public float fuelDepletingSpeed = 20.0f;
     public float fuelReplenishingSpeed = 10.0f;
     public float additionalSpeed = 0f;
+    public float soundFadout = 5.0f;
 
     public GameObject orbitPoint;
     public GameObject camera;
     public Vector3 cameraOffset = new Vector3(0,0,10);
 
     private Planet_Behavior planetBehavior;
+    private AudioSource thrusterSource;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class Spaceship_Behavior : MonoBehaviour
         {
             SetOrbite(orbitPoint);
         }
+        thrusterSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,12 @@ public class Spaceship_Behavior : MonoBehaviour
             {
                 additionalSpeed = Input.GetAxis("Vertical") * propulsionPower;
                 fuelLevel -= fuelDepletingSpeed * Time.deltaTime;
+                // Thruster sound
+                thrusterSource.volume = math.min(1, thrusterSource.volume + soundFadout * Time.deltaTime);
+                if (!thrusterSource.isPlaying)
+                {
+                    thrusterSource.Play();
+                }
             }
         }
         else
@@ -45,6 +54,16 @@ public class Spaceship_Behavior : MonoBehaviour
         if(fuelLevel < 100 && Input.GetAxis("Vertical") == 0)
         {
             fuelLevel += fuelReplenishingSpeed * Time.deltaTime;
+        }
+
+        // Fadout sound
+        if (Input.GetAxis("Vertical") == 0)
+        {
+            thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * Time.deltaTime);
+            if (thrusterSource.volume == 0)
+            {
+                thrusterSource.Stop();
+            }
         }
 
         if (planetBehavior)
