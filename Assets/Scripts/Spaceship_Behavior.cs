@@ -42,7 +42,6 @@ public class Spaceship_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(orbitPoint);
         // Change orbit
         if (target)
         {
@@ -94,7 +93,7 @@ public class Spaceship_Behavior : MonoBehaviour
         // Fadout sound
         if (Input.GetAxis("Vertical") == 0)
         {
-            thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * Time.deltaTime);
+            thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * 2 * Time.deltaTime);
             if (thrusterSource.volume == 0)
             {
                 thrusterSource.Stop();
@@ -114,10 +113,13 @@ public class Spaceship_Behavior : MonoBehaviour
     void SetOrbite(GameObject newPlanet)
     {
         // Set old orbit color
-        Circle oldOrbit = orbitPoint.GetComponentInChildren<Circle>();
-        if (oldOrbit)
+        if (orbitPoint)
         {
-            oldOrbit.SetColor(oldOrbit.defaultColor);
+            Circle oldOrbit = orbitPoint.GetComponentInChildren<Circle>();
+            if (oldOrbit)
+            {
+                oldOrbit.SetColor(oldOrbit.defaultColor);
+            }
         }
 
         // Move to next orbit
@@ -125,11 +127,18 @@ public class Spaceship_Behavior : MonoBehaviour
         planetBehavior = orbitPoint.GetComponent<Planet_Behavior>();
         transform.parent = orbitPoint.transform;
 
-        // Update orbits color
         Circle newOrbit = orbitPoint.GetComponentInChildren<Circle>();
         if (newOrbit)
         {
+            // Update orbits color
             newOrbit.SetColor(currentOrbitColor);
+            // Set the position on the orbite
+            var normPos = new Vector2(transform.localPosition.x, transform.localPosition.y).normalized;
+            transform.localPosition = new Vector3(
+                normPos.x * newOrbit.xRadius * newOrbit.gameObject.transform.localScale.x,
+                normPos.y * newOrbit.yRadius * newOrbit.gameObject.transform.localScale.y,
+                transform.localPosition.z
+            );
         }
     }
 
