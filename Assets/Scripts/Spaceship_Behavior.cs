@@ -156,7 +156,7 @@ public class Spaceship_Behavior : MonoBehaviour
         }
 
         // Sound
-        transferSource.pitch = 0.9f + UnityEngine.Random.Range(0.9f, 1.1f);
+        transferSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
         transferSource.Play();
     }
 
