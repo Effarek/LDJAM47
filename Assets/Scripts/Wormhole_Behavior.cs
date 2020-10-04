@@ -51,6 +51,8 @@ public class Wormhole_Behavior : MonoBehaviour
     {
         if (target != null && !travellers.Contains(collision.gameObject))
         {
+            Camera_Behaviour cam = Camera.main.GetComponent<Camera_Behaviour>();
+            var pPos = cam.player.transform.position;
             // Teleport
             collision.transform.position = target.transform.position;
             var tar = target.GetComponent<Wormhole_Behavior>();
@@ -66,7 +68,10 @@ public class Wormhole_Behavior : MonoBehaviour
                 }
             }
 
-            StartCoroutine(Camera.main.GetComponent<Camera_Behaviour>().SetScreenshake());
+            if (pPos != cam.player.transform.position)
+            {
+                StartCoroutine(cam.SetScreenshake());
+            }
         }
     }
 

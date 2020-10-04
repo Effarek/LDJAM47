@@ -120,7 +120,8 @@ public class Spaceship_Behavior : MonoBehaviour
         }
 
         fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
-        fuelBarParent.eulerAngles = transform.eulerAngles;
+        // TODO : On laisse ou pas  ???
+        //fuelBarParent.eulerAngles = transform.eulerAngles;
         fuelBarFull.fillAmount = fuelLevel / 100f;
     }
 
