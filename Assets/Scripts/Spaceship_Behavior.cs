@@ -104,11 +104,18 @@ public class Spaceship_Behavior : MonoBehaviour
         planetBehavior = orbitPoint.GetComponent<Planet_Behavior>();
         transform.parent = orbitPoint.transform;
 
-        // Update orbits color
         Circle newOrbit = orbitPoint.GetComponentInChildren<Circle>();
         if (newOrbit)
         {
+            // Update orbits color
             newOrbit.SetColor(currentOrbitColor);
+            // Set the position on the orbite
+            var normPos = new Vector2(transform.localPosition.x, transform.localPosition.y).normalized;
+            transform.localPosition = new Vector3(
+                normPos.x * newOrbit.xRadius * newOrbit.gameObject.transform.localScale.x,
+                normPos.y * newOrbit.yRadius * newOrbit.gameObject.transform.localScale.y,
+                transform.localPosition.z
+            );
         }
     }
 

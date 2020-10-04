@@ -18,7 +18,10 @@ public class Camera_Behaviour : MonoBehaviour
 
     private void Start()
     {
-        playerParent = player.transform.parent.gameObject;
+        if (player.transform.parent)
+        {
+            playerParent = player.transform.parent.gameObject;
+        }
     }
 
     // Update is called once per frame
