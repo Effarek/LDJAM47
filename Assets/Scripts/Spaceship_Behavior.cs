@@ -2,6 +2,8 @@
 using Unity.Mathematics;
 using UnityEngine.UI;
 using JetBrains.Annotations;
+using UnityEngine.U2D;
+using UnityEngine.Rendering;
 
 public class Spaceship_Behavior : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Spaceship_Behavior : MonoBehaviour
     public float fuelReplenishingSpeed = 10.0f;
     public float additionalSpeed = 0f;
     public float soundFadout = 5.0f;
+    public float rotationSpeed = 50f;
 
     public Image fuelBarFull;
     public GameObject orbitPoint;
@@ -64,6 +67,7 @@ public class Spaceship_Behavior : MonoBehaviour
                 {
                     thrusterSource.Play();
                 }
+
                 // Play fire particles
                 if (!system.isPlaying)
                 {
@@ -77,6 +81,7 @@ public class Spaceship_Behavior : MonoBehaviour
                 {
                     system.Stop();
                 }
+                additionalSpeed = 0;
             }
         }
         else
@@ -90,7 +95,7 @@ public class Spaceship_Behavior : MonoBehaviour
             fuelLevel += fuelReplenishingSpeed * Time.deltaTime;
         }
 
-        // Fadout sound
+        // Fadeout sound
         if (Input.GetAxis("Vertical") == 0)
         {
             thrusterSource.volume = math.max(0, thrusterSource.volume - soundFadout * 2 * Time.deltaTime);
@@ -103,6 +108,12 @@ public class Spaceship_Behavior : MonoBehaviour
         if (planetBehavior)
         {
             transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + additionalSpeed) * Time.deltaTime);
+        }
+
+        // Rotation
+        if (additionalSpeed == 0)
+        {
+            transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
         }
 
         fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
