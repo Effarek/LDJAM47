@@ -25,6 +25,7 @@ public class Spaceship_Behavior : MonoBehaviour
 
     private Planet_Behavior planetBehavior;
     private AudioSource thrusterSource;
+    private AudioSource transferSource;
     private GameObject target;
     private ParticleSystem system;
     private Transform fuelBarParent;
@@ -37,7 +38,9 @@ public class Spaceship_Behavior : MonoBehaviour
         {
             SetOrbite(orbitPoint);
         }
-        thrusterSource = GetComponent<AudioSource>();
+        var audioSources = GetComponents<AudioSource>();
+        thrusterSource = audioSources[0];
+        transferSource = audioSources[1];
         system = GetComponentInChildren<ParticleSystem>();
         fuelBarParent = fuelBarFull.transform.parent;
     }
@@ -46,7 +49,7 @@ public class Spaceship_Behavior : MonoBehaviour
     void Update()
     {
         // Change orbit
-        if (target)
+        if (target && target != orbitPoint)
         {
             if (Input.GetButton("Fire1") || orbitPoint == null)
             {
@@ -151,6 +154,10 @@ public class Spaceship_Behavior : MonoBehaviour
                 transform.localPosition.z
             );
         }
+
+        // Sound
+        transferSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        transferSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
