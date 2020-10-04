@@ -5,6 +5,7 @@ using UnityEngine;
 public class Wormhole_Behavior : MonoBehaviour
 {
     public GameObject target;
+    public GameObject orbitPoint;
     public float rotation = 50f;
 
     private List<GameObject> travellers;
@@ -48,15 +49,22 @@ public class Wormhole_Behavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
         if (target != null && !travellers.Contains(collision.gameObject))
         {
+            // Teleport
+            collision.transform.position = target.transform.position;
             var tar = target.GetComponent<Wormhole_Behavior>();
+            // Other side is wormhole
             if (tar)
             {
                 tar.travellers.Add(collision.gameObject);
+                var planet = collision.gameObject.GetComponent<Planet_Behavior>();
+                if (planet)
+                {
+                    // Set new orbit
+                    planet.orbitPoint = tar.orbitPoint;
+                }
             }
-            collision.transform.position = target.transform.position;
 
             StartCoroutine(Camera.main.GetComponent<Camera_Behaviour>().SetScreenshake());
         }
