@@ -15,6 +15,8 @@ public class Camera_Behaviour : MonoBehaviour
 
     private GameObject playerParent;
     private bool playerParentChanged = false;
+    private bool isScreenshaking = false;
+    private float timeElapsed = 0f;
 
     private void Start()
     {
@@ -54,7 +56,41 @@ public class Camera_Behaviour : MonoBehaviour
         {
             transform.position = targetPosition;
         }
-        
-        
+
+        if (isScreenshaking)
+        {
+            float shakeSpeed = 80f;
+            float shakeStrength = 0.2f;
+
+            Vector3 originalPosition = transform.position;
+
+            timeElapsed += Time.deltaTime;
+
+            if ((int)(timeElapsed * 100) % 2 == 0)
+            {
+                transform.position = originalPosition
+                                    + new Vector3(Mathf.Sin(Time.time * shakeSpeed) * shakeStrength,
+                                                  Mathf.Sin(Time.time * shakeSpeed) * shakeStrength,
+                                                  0);
+            }
+            else
+            {
+                transform.position = originalPosition
+                                    + new Vector3(Mathf.Sin(Time.time * shakeSpeed) * -shakeStrength,
+                                                  Mathf.Sin(Time.time * shakeSpeed) * shakeStrength,
+                                                  0);
+            }
+        }
+    }
+
+    public IEnumerator SetScreenshake()
+    {
+        isScreenshaking = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        isScreenshaking = false;
+
+        timeElapsed = 0f;
     }
 }
