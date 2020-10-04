@@ -293,5 +293,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  maxDistance: 20
-  LevelCenter: {fileID: 0}
+  maxDistance: 1000
+  player: {fileID: 0}
