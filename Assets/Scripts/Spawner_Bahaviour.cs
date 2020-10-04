@@ -9,6 +9,7 @@ public class Spawner_Bahaviour : MonoBehaviour
     private bool spanwed = false;
 
     public GameObject objectToSpawn;
+    public float spawnedObjectMaxDistance = 100;
 
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class Spawner_Bahaviour : MonoBehaviour
         {
             GameObject meteoriteCreated = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             meteoriteCreated.transform.rotation = transform.rotation;
+            meteoriteCreated.GetComponent<Meteorite_Behaviour>().maxDistance = spawnedObjectMaxDistance;
             timer = 0;
         }
     }

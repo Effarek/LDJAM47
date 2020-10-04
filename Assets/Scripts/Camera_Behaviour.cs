@@ -4,29 +4,54 @@ using UnityEngine;
 
 public class Camera_Behaviour : MonoBehaviour
 {
-    public Vector3 cameraOffset = new Vector3(0, 0, 10);
-    public GameObject Player;
-    public Vector3 targetPosition;
+    public GameObject player;
+    public float maxX = 70.0f;
+    public float maxY = 70.0f;
+    public float cameraOffset = 10;
 
-    public float lerpSpeed = 1.0f;
+    private Vector3 targetPosition;
+    private float currentTime = 0;
+    public float lerpDuration = 1.0f;
 
-    void Start()
+    private GameObject playerParent;
+    private bool playerParentChanged = false;
+
+    private void Start()
     {
-        
+        playerParent = player.transform.parent.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        targetPosition = Player.transform.parent.position - cameraOffset;
-        float step = lerpSpeed * Time.deltaTime;
+        if (playerParent != player.transform.parent.gameObject)
+        {
+            playerParentChanged = true;
+            playerParent = player.transform.parent.gameObject;
+        }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        targetPosition = new Vector3(
+            Mathf.Clamp(player.transform.parent.position.x, -maxX, maxX), 
+            Mathf.Clamp(player.transform.parent.position.y, -maxY, maxY), 
+            -cameraOffset);
 
-        if(Vector3.Distance(transform.position, targetPosition) < 0.001f)
+        if (playerParentChanged)
+        {
+            if (currentTime < lerpDuration)
+            {
+                transform.position = Vector3.Lerp(transform.position, targetPosition, currentTime / lerpDuration);
+                currentTime += Time.deltaTime;
+            }
+            else
+            {
+                playerParentChanged = false;
+            }
+        }
+        else
         {
             transform.position = targetPosition;
         }
-        //transform.position = Player.transform.parent.position - cameraOffset;
+        
+        
     }
 }

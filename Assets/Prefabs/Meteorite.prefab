@@ -292,6 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc963ef659fe640b2c0af75c2c14f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
-  maxDistance: 100
-  player: {fileID: 0}
+  speed: 25
+  maxDistance: 20
+  LevelCenter: {fileID: 0}

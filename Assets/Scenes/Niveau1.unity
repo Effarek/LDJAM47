@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 87826964}
   - component: {fileID: 87826963}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 152.31787, y: 112.481766}
+  m_Size: {x: 201.5082, y: 148.80722}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.7
+      value: 47.65
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -504,10 +504,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce93bee30ca941e4b8b93a3cd75854a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOffset: {x: 0, y: 0, z: 10}
-  Player: {fileID: 851765576}
-  targetPosition: {x: 0, y: 0, z: 0}
-  lerpSpeed: 100
+  player: {fileID: 851765576}
+  maxX: 70
+  maxY: 55
+  cameraOffset: 10
+  lerpDuration: 1
 --- !u!1001 &665799053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,7 +632,7 @@ PrefabInstance:
     - target: {fileID: 7968727522826392862, guid: c03078151481c474e86aaf1210325b4f, type: 3}
       propertyPath: orbitPoint
       value: 
-      objectReference: {fileID: 1317424731}
+      objectReference: {fileID: 935250019}
     - target: {fileID: 7968727522826392862, guid: c03078151481c474e86aaf1210325b4f, type: 3}
       propertyPath: propulsionPower
       value: 100
@@ -884,10 +885,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
+--- !u!1 &844843779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844843780}
+  m_Layer: 0
+  m_Name: LevelCenter
+  m_TagString: LevelCenter
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &844843780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844843779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851765576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7968727522826392860, guid: c03078151481c474e86aaf1210325b4f, type: 3}
   m_PrefabInstance: {fileID: 720380735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &935250019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
+  m_PrefabInstance: {fileID: 1626038299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1317424730
 PrefabInstance:
@@ -990,11 +1026,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
---- !u!1 &1317424731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
-  m_PrefabInstance: {fileID: 1317424730}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1626038299
 PrefabInstance:
   m_ObjectHideFlags: 0

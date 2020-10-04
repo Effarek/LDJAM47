@@ -9,6 +9,7 @@ TagManager:
   - Orbit
   - Wormhole
   - Alien
+  - LevelCenter
   layers:
   - Default
   - TransparentFX
