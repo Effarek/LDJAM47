@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Wormhole_Behavior : MonoBehaviour
@@ -7,10 +8,13 @@ public class Wormhole_Behavior : MonoBehaviour
     public GameObject target;
     public GameObject orbitPoint;
     public float rotation = 50f;
+    public bool singleTicket = false;
 
     private List<GameObject> travellers;
     private ParticleSystem system;
     private GameObject player;
+    private bool isDying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,17 +49,30 @@ public class Wormhole_Behavior : MonoBehaviour
                 system.Stop();
             }
         }
+
+        if (isDying)
+        {
+            var newScale = math.max(0, transform.localScale.x - 0.1f * Time.deltaTime);
+            transform.localScale = new Vector3(newScale, newScale, transform.localScale.z);
+            if(newScale == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (target != null && !travellers.Contains(collision.gameObject))
+        if (target != null && !travellers.Contains(collision.gameObject) && !isDying)
         {
             Camera_Behaviour cam = Camera.main.GetComponent<Camera_Behaviour>();
             var pPos = cam.player.transform.position;
             // Teleport
             collision.transform.position = target.transform.position;
             var tar = target.GetComponent<Wormhole_Behavior>();
+            // Has player teleported
+            bool playerTP = (pPos != cam.player.transform.position);
+
             // Other side is wormhole
             if (tar)
             {
@@ -68,9 +85,17 @@ public class Wormhole_Behavior : MonoBehaviour
                 }
             }
 
-            if (pPos != cam.player.transform.position)
+            if (playerTP)
             {
                 StartCoroutine(cam.SetScreenshake());
+                if (singleTicket || (tar && tar.singleTicket))
+                {
+                    Disappear();
+                    if (tar)
+                    {
+                        tar.Disappear();
+                    }
+                }
             }
         }
     }
@@ -81,5 +106,10 @@ public class Wormhole_Behavior : MonoBehaviour
         {
             travellers.Remove(collision.gameObject);
         }
+    }
+
+    public void Disappear()
+    {
+        isDying = true;
     }
 }
