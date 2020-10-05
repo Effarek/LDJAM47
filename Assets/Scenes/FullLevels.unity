@@ -2031,6 +2031,7 @@ MonoBehaviour:
     - I can use my <color=orange>Thrusters</color> to control my speed when in orbit
     - Then, i should be able to <color=red>change my orbit</color> with the right
       timing
+    - (Use RIGHT CLICK to change orbit when in range)
   - sentences:
     - The last planet of the system goes throught a wormhole, and come back by the
       same way
@@ -2040,11 +2041,17 @@ MonoBehaviour:
     - Yeah, it's quite usefull
   - sentences:
     - I should avoid those <color=green>UFOs</color>, it could be a bad encounter
+    - (Use MOUSEWHEEL to set the zoom level. Use it to find your way out)
+    - (Try to get out of systems using its extremities or wormholes leading to other
+      systems)
   - sentences:
     - The signal has stop emitting
   - sentences:
     - I can't find a way to escape this orbit
     - My only hope is to send a <color=#4444FF>signal</color>...
+    - '(Thank you for playing !)
+
+      (You can exit the game by pressing ESCAPE)'
   dialogueTriggers:
   - {fileID: 1626038300}
   - {fileID: 801179638}
