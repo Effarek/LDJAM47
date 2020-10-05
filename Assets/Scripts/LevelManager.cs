@@ -34,7 +34,11 @@ public class LevelManager : MonoBehaviour
         // Load level music
         musicSource.clip = musics[currentLvl - 1];
         musicSource.Play();
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogues[0]);
+        if (currentLvl == 1)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogues[0]);
+        }
+        
     }
 
     void Update()
@@ -57,6 +61,10 @@ public class LevelManager : MonoBehaviour
             {
                 currentLvl += 1;
                 PlayerPrefs.SetInt("lvl", currentLvl);
+                if (musicSource.clip != musics[currentLvl - 1])
+                {
+                    musicSource.clip = musics[currentLvl - 1];
+                }
             }
         }
 
