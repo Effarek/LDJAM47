@@ -26,6 +26,9 @@ public class Spaceship_Behavior : MonoBehaviour
     public Color currentOrbitColor;
     public Color targetOrbitColor;
 
+    public Texture cursorImage;
+    private Color cursorColor;
+
     private Planet_Behavior planetBehavior;
     private AudioSource thrusterSource;
     private AudioSource transferSource;
@@ -39,6 +42,8 @@ public class Spaceship_Behavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         var audioSources = GetComponents<AudioSource>();
         thrusterSource = audioSources[0];
         transferSource = audioSources[1];
@@ -61,6 +66,12 @@ public class Spaceship_Behavior : MonoBehaviour
             {
                 SetOrbite(target);
             }
+
+            cursorColor = targetOrbitColor;
+        }
+        else
+        {
+            cursorColor = Color.white;
         }
 
         if(fuelLevel > 0f)
@@ -226,4 +237,11 @@ public class Spaceship_Behavior : MonoBehaviour
             target = null;
         }
     }
+
+    private void OnGUI()
+    {
+        GUI.color = cursorColor;
+        GUI.DrawTexture(new Rect(Input.mousePosition.x - 8, Screen.height - Input.mousePosition.y - 8, 16, 16), cursorImage);
+    }
+
 }

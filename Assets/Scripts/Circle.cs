@@ -11,7 +11,6 @@ public class Circle : MonoBehaviour
 
     public Color defaultColor;
 
-
     private LineRenderer lineRenderer;
 
     void Start()
