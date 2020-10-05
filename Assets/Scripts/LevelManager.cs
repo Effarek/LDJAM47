@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         var sources = GetComponents<AudioSource>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         musicSource = sources[0];
-        PlayerPrefs.SetInt("lvl", 6);
+        //PlayerPrefs.SetInt("lvl", 5);
         currentLvl = PlayerPrefs.GetInt("lvl", 1);
         // Set spawn position
         player.transform.position = new Vector3(
@@ -99,6 +99,7 @@ public class LevelManager : MonoBehaviour
                     lvlTimer = Time.time;
                     musicSource.loop = false;
                     //musicSource.clip = musics[5];
+                    musicSource.volume = 0.45f;
                 }
             }
             if (currentLvl == 7 && !dialogueManager.animator.GetBool("IsOpen") && Time.time - lvlTimer > 5f)
