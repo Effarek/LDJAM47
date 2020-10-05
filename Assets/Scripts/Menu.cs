@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("lvl", 1);
+        Cursor.visible = true;
     }
     //Menu Manager
     public void LoadScene(string sceneName)

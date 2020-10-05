@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
         var sources = GetComponents<AudioSource>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         musicSource = sources[0];
-        //PlayerPrefs.SetInt("lvl", 2);
+        //PlayerPrefs.SetInt("lvl", 1);
         currentLvl = PlayerPrefs.GetInt("lvl", 1);
         // Set spawn position
         player.transform.position = new Vector3(

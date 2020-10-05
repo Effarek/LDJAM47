@@ -2031,7 +2031,7 @@ MonoBehaviour:
     - I can use my <color=orange>Thrusters</color> to control my speed when in orbit
     - Then, i should be able to <color=red>change my orbit</color> with the right
       timing
-    - (Use RIGHT CLICK to change orbit when in range)
+    - (Use LEFT CLICK to change orbit when in range)
   - sentences:
     - The last planet of the system goes throught a wormhole, and come back by the
       same way
