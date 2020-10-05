@@ -920,6 +920,10 @@ PrefabInstance:
       propertyPath: orbitPoint
       value: 
       objectReference: {fileID: 855366223}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: shouldShake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole
@@ -7006,6 +7010,10 @@ PrefabInstance:
       propertyPath: orbitPoint
       value: 
       objectReference: {fileID: 1270632164}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: shouldShake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole (1)
