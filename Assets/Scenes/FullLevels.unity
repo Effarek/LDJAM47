@@ -970,7 +970,6 @@ Transform:
   - {fileID: 1344086446}
   - {fileID: 1443290662}
   - {fileID: 2021358975}
-  - {fileID: 617334955}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1007,12 +1006,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308798678}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.1, y: 38.5, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -51.500008, y: -41.199997, z: -52.130657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1315971395}
-  m_RootOrder: 25
+  m_Father: {fileID: 586980541}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316994325
 GameObject:
@@ -1037,12 +1036,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316994325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.39, y: 55.12, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22672749, y: -0.09273529, z: -52.130657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 541622630}
-  m_RootOrder: 11
+  m_Father: {fileID: 1626038300}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &388903081
 PrefabInstance:
@@ -1672,7 +1671,6 @@ Transform:
   - {fileID: 388903082}
   - {fileID: 1837805358}
   - {fileID: 188744921}
-  - {fileID: 316994326}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1710,7 +1708,6 @@ Transform:
   - {fileID: 1048440562}
   - {fileID: 749989444}
   - {fileID: 1508045402}
-  - {fileID: 1914550479}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1839,12 +1836,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617334954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: 11.1, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20000601, y: 0.9000063, z: -1.392767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 263077202}
-  m_RootOrder: 9
+  m_Father: {fileID: 1379527312}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620329407
 GameObject:
@@ -1999,7 +1996,7 @@ MonoBehaviour:
   - {fileID: 308798679}
   dialogues:
   - sentences:
-    - We are receiving this <color=blue>strange signal</color>l for a while now
+    - We are receiving this <color=#4444FF>strange signal</color> for a while now
     - I need to go a see what it is, but it's pretty far away, outside of the solar
       system
     - I can use my <color=orange>Thrusters</color> to control my speed when in orbit
@@ -2017,7 +2014,7 @@ MonoBehaviour:
     - The signal has stop emitting
   - sentences:
     - I can't find a way to escape this orbit
-    - My only hope is to send a <color=blue>signal</color>
+    - My only hope is to send a <color=#4444FF>signal</color>
   gameOverText: {fileID: 907485543}
 --- !u!1 &626921569
 GameObject:
@@ -4757,7 +4754,6 @@ Transform:
   - {fileID: 731416807}
   - {fileID: 1932051019}
   - {fileID: 1434087924}
-  - {fileID: 308798679}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5699,12 +5695,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730813412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.5, y: 2.5, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4099998, y: 2.2501316, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1876130313}
-  m_RootOrder: 5
+  m_Father: {fileID: 1012223152}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1752837421
 PrefabInstance:
@@ -6190,7 +6186,6 @@ Transform:
   - {fileID: 1012223152}
   - {fileID: 1966611361}
   - {fileID: 1270632166}
-  - {fileID: 1730813413}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6627,12 +6622,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914550478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.3, y: -24.1, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.499996, y: -2.0999985, z: -59.024384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 560946038}
-  m_RootOrder: 7
+  m_Father: {fileID: 154063831}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1932051018
 GameObject:

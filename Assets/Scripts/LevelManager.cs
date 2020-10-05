@@ -50,9 +50,15 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene("FullLevels", LoadSceneMode.Single);
         }
 
-        // TODO respawn points
-
-        // TODO remove wormholes on respawn
+        // Respawn points
+        if (player && player.GetComponentInParent<Planet_Behavior>())
+        {
+            if (respawnPositions[currentLvl].parent == player.GetComponentInParent<Planet_Behavior>().gameObject.transform)
+            {
+                currentLvl += 1;
+                PlayerPrefs.SetInt("lvl", currentLvl);
+            }
+        }
 
         // TODO dialogues
     }

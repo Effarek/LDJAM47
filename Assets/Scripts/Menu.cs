@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     public void Start()
     {
         Time.timeScale = 1f;
+        PlayerPrefs.SetInt("lvl", 1);
     }
     //Menu Manager
     public void LoadScene(string sceneName)
