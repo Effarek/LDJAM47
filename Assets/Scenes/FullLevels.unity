@@ -1999,17 +1999,25 @@ MonoBehaviour:
   - {fileID: 308798679}
   dialogues:
   - sentences:
-    - We are receiving this strange signal for a while now
+    - We are receiving this <color=blue>strange signal</color>l for a while now
     - I need to go a see what it is, but it's pretty far away, outside of the solar
       system
     - I can use my <color=orange>Thrusters</color> to control my speed when in orbit
     - Then, i should be able to <color=red>change my orbit</color> with the right
       timing
-  - sentences: []
-  - sentences: []
-  - sentences: []
-  - sentences: []
-  - sentences: []
+  - sentences:
+    - 'The last planet of the system '
+    - Wormhole machin chose
+  - sentences:
+    - I can use comets and meteorites to travel between systems
+    - Yeah, it's quite usefull
+  - sentences:
+    - I should avoid those <color=green>UFO</color>, it could be a bad encounter
+  - sentences:
+    - The signal has stop emitting
+  - sentences:
+    - I can't find a way to escape this orbit
+    - My only hope is to send a <color=blue>signal</color>
   gameOverText: {fileID: 907485543}
 --- !u!1 &626921569
 GameObject:
