@@ -18,6 +18,10 @@ public class Camera_Behaviour : MonoBehaviour
     private bool isScreenshaking = false;
     private float timeElapsed = 0f;
 
+    private float minSize = 5f;
+    private float maxSize = 50f;
+    private float sensitivity = 10f;
+
     private void Start()
     {
         if (player.transform.parent)
@@ -95,6 +99,11 @@ public class Camera_Behaviour : MonoBehaviour
                                                   0);
             }
         }
+
+        float size = Camera.main.orthographicSize;
+        size -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+        size = Mathf.Clamp(size, minSize, maxSize);
+        Camera.main.orthographicSize = size;
     }
 
     public IEnumerator SetScreenshake()
