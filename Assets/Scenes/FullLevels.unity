@@ -1997,7 +1997,19 @@ MonoBehaviour:
   - {fileID: 617334955}
   - {fileID: 1730813413}
   - {fileID: 308798679}
-  dialogues: []
+  dialogues:
+  - sentences:
+    - We are receiving this strange signal for a while now
+    - I need to go a see what it is, but it's pretty far away, outside of the solar
+      system
+    - I can use my <color=orange>Thrusters</color> to control my speed when in orbit
+    - Then, i should be able to <color=red>change my orbit</color> with the right
+      timing
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
   gameOverText: {fileID: 907485543}
 --- !u!1 &626921569
 GameObject:

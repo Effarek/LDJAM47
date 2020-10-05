@@ -57,7 +57,7 @@ public class Spaceship_Behavior : MonoBehaviour
         // Change orbit
         if (target && target != orbitPoint)
         {
-            if (Input.GetButton("Fire1") || orbitPoint == null)
+            if (Input.GetButtonDown("Fire1") || orbitPoint == null)
             {
                 SetOrbite(target);
             }
