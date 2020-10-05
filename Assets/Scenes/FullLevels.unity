@@ -2003,8 +2003,9 @@ MonoBehaviour:
     - Then, i should be able to <color=red>change my orbit</color> with the right
       timing
   - sentences:
-    - 'The last planet of the system '
-    - Wormhole machin chose
+    - The last planet of the system goes throught a wormhole, and come back by the
+      same way
+    - We could use this to travel if we are in orbit when the planet go throught
   - sentences:
     - I can use comets and meteorites to travel between systems
     - Yeah, it's quite usefull
@@ -2014,7 +2015,12 @@ MonoBehaviour:
     - The signal has stop emitting
   - sentences:
     - I can't find a way to escape this orbit
-    - My only hope is to send a <color=#4444FF>signal</color>
+    - My only hope is to send a <color=#4444FF>signal</color>...
+  dialogueTriggers:
+  - {fileID: 1626038300}
+  - {fileID: 801179638}
+  - {fileID: 154063831}
+  - {fileID: 1379527312}
   gameOverText: {fileID: 907485543}
 --- !u!1 &626921569
 GameObject:
