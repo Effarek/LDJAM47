@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public Dialogue[] dialogues;
     public Transform[] dialogueTriggers;
     public Text gameOverText;
+    public Text pauseText;
     public Transform lastSun;
 
     private AudioSource musicSource;
@@ -51,6 +52,26 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        // Back to menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseText.enabled)
+            {
+                pauseText.enabled = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                pauseText.enabled = true;
+                Time.timeScale = 0;
+            }
+        }
+
+        if (pauseText.enabled && Input.GetButtonDown("Jump"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
         if (!IsGameOver && player == null)
         {
             IsGameOver = true;
