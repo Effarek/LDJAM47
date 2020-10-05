@@ -29,8 +29,19 @@ public class Wormhole_Behavior : MonoBehaviour
     void Update()
     {
         transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
-
-        float distance = Vector2.Distance(player.transform.position, transform.position);
+        
+        float distance;
+        
+        if (player)
+        {
+            distance = Vector2.Distance(player.transform.position, transform.position);
+        }
+        // Très sale nounours
+        else
+        {
+            distance = 1000;
+        }
+        
 
         if (distance < 8f && distance > 0.5f)
         {
@@ -66,12 +77,20 @@ public class Wormhole_Behavior : MonoBehaviour
         if (target != null && !travellers.Contains(collision.gameObject) && !isDying)
         {
             Camera_Behaviour cam = Camera.main.GetComponent<Camera_Behaviour>();
-            var pPos = cam.player.transform.position;
+            Vector3 pPos;
+            if (cam.player)
+            {
+                pPos = cam.player.transform.position;
+            }
+            else
+            {
+                pPos = cam.transform.position;
+            }
             // Teleport
             collision.transform.position = target.transform.position;
             var tar = target.GetComponent<Wormhole_Behavior>();
             // Has player teleported
-            bool playerTP = (pPos != cam.player.transform.position);
+            bool playerTP = (cam.player != null && pPos != cam.player.transform.position);
 
             // Other side is wormhole
             if (tar)

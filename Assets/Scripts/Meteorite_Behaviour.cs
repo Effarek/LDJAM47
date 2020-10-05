@@ -18,7 +18,10 @@ public class Meteorite_Behaviour : MonoBehaviour
     void Update()
     {
         transform.position += transform.right * speed * Time.deltaTime;
-        currentDistance = Vector3.Distance(player.transform.position, transform.position);
+        if (player)
+        {
+            currentDistance = Vector3.Distance(player.transform.position, transform.position);
+        }
 
         if (currentDistance > maxDistance)
         {

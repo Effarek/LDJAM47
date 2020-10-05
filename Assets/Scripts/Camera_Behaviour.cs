@@ -29,16 +29,30 @@ public class Camera_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerParent != player.transform.parent.gameObject)
+        if(player == null)
         {
-            playerParentChanged = true;
-            playerParent = player.transform.parent.gameObject;
+            return;
         }
+        if (player.transform.parent)
+        {
+            if (playerParent != player.transform.parent.gameObject)
+            {
+                playerParentChanged = true;
+                playerParent = player.transform.parent.gameObject;
+            }
 
-        targetPosition = new Vector3(
-            Mathf.Clamp(player.transform.parent.position.x, -maxX, maxX), 
-            Mathf.Clamp(player.transform.parent.position.y, -maxY, maxY), 
-            -cameraOffset);
+            targetPosition = new Vector3(
+                Mathf.Clamp(player.transform.parent.position.x, -maxX, maxX),
+                Mathf.Clamp(player.transform.parent.position.y, -maxY, maxY),
+                -cameraOffset);
+        }
+        else
+        {
+            targetPosition = new Vector3(
+                Mathf.Clamp(player.transform.position.x, -maxX, maxX),
+                Mathf.Clamp(player.transform.position.y, -maxY, maxY),
+                -cameraOffset);
+        }
 
         if (playerParentChanged)
         {

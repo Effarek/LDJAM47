@@ -53,7 +53,7 @@ public class Alien_Behavior : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Spaceship_Behavior>().Destroy();
         }
     }
 }

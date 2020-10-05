@@ -21,6 +21,7 @@ public class Spaceship_Behavior : MonoBehaviour
     public Vector3 cameraOffset = new Vector3(0,0,10);
     public AudioClip thrusterGood;
     public AudioClip thrusterBad;
+    public AudioClip deathSound;
 
     public Color currentOrbitColor;
     public Color targetOrbitColor;
@@ -28,6 +29,7 @@ public class Spaceship_Behavior : MonoBehaviour
     private Planet_Behavior planetBehavior;
     private AudioSource thrusterSource;
     private AudioSource transferSource;
+
     private GameObject target;
     private ParticleSystem system;
     private Transform fuelBarParent;
@@ -186,8 +188,17 @@ public class Spaceship_Behavior : MonoBehaviour
         }
 
         // Sound
-        transferSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        transferSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
         transferSource.Play();
+    }
+
+    public void Destroy()
+    {
+        var listener = GetComponentInChildren<AudioListener>().gameObject;
+        listener.transform.parent = null;
+        listener.GetComponent<AudioSource>().Play();
+        fuelBarParent.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
