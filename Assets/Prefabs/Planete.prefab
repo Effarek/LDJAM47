@@ -247,6 +247,7 @@ MonoBehaviour:
   xRadius: 3.555
   yRadius: 3.555
   defaultColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.78431374}
+  cursorImage: {fileID: 2800000, guid: 2dc99cb7ccc762d4da4d490b8d35f5d1, type: 3}
 --- !u!1 &8177239404038940459
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   orbitPoint: {fileID: 0}
   rotationSpeed: 25
   orbitSpeed: 0
+  isWaiting: 0
 --- !u!58 &3515559809803063066
 CircleCollider2D:
   m_ObjectHideFlags: 0

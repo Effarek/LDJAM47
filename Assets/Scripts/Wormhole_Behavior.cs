@@ -9,6 +9,7 @@ public class Wormhole_Behavior : MonoBehaviour
     public GameObject orbitPoint;
     public float rotation = 50f;
     public bool singleTicket = false;
+    public bool shouldShake = true;
 
     private List<GameObject> travellers;
     private ParticleSystem system;
@@ -106,7 +107,11 @@ public class Wormhole_Behavior : MonoBehaviour
 
             if (playerTP)
             {
-                StartCoroutine(cam.SetScreenshake());
+                if (shouldShake)
+                {
+                    StartCoroutine(cam.SetScreenshake());
+                }
+
                 if (singleTicket || (tar && tar.singleTicket))
                 {
                     Disappear();
