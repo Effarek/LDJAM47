@@ -2015,10 +2015,10 @@ MonoBehaviour:
       same way
     - We could use this to travel if we are in orbit when the planet go throught
   - sentences:
-    - I can use comets and meteorites to travel between systems
+    - I can use meteorites to travel between systems
     - Yeah, it's quite usefull
   - sentences:
-    - I should avoid those <color=green>UFO</color>, it could be a bad encounter
+    - I should avoid those <color=green>UFOs</color>, it could be a bad encounter
   - sentences:
     - The signal has stop emitting
   - sentences:
@@ -4204,7 +4204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1211387068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6672,7 +6672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914550478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.499996, y: -2.0999985, z: -59.024384}
+  m_LocalPosition: {x: 0, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 154063831}
