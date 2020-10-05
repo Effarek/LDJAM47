@@ -695,11 +695,11 @@ PrefabInstance:
       objectReference: {fileID: 1774709522}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: 30
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 200
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -1011,7 +1011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308798678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.500008, y: -41.199997, z: -52.130657}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 586980541}
@@ -1804,7 +1804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 250
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -1991,6 +1991,9 @@ MonoBehaviour:
   musics:
   - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
   - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
+  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
+  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
+  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
   - {fileID: 8300000, guid: e526d553b8f91854ca8b91eb67782ad0, type: 3}
   respawnPositions:
   - {fileID: 316994326}
@@ -1998,6 +2001,7 @@ MonoBehaviour:
   - {fileID: 617334955}
   - {fileID: 1730813413}
   - {fileID: 308798679}
+  - {fileID: 811395309}
   dialogues:
   - sentences:
     - We are receiving this <color=#4444FF>strange signal</color> for a while now
@@ -2011,10 +2015,10 @@ MonoBehaviour:
       same way
     - We could use this to travel if we are in orbit when the planet go throught
   - sentences:
-    - I can use comets and meteorites to travel between systems
+    - I can use meteorites to travel between systems
     - Yeah, it's quite usefull
   - sentences:
-    - I should avoid those <color=green>UFO</color>, it could be a bad encounter
+    - I should avoid those <color=green>UFOs</color>, it could be a bad encounter
   - sentences:
     - The signal has stop emitting
   - sentences:
@@ -2026,6 +2030,7 @@ MonoBehaviour:
   - {fileID: 154063831}
   - {fileID: 1379527312}
   gameOverText: {fileID: 907485543}
+  lastSun: {fileID: 1434087924}
 --- !u!1 &626921569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3106,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
   m_PrefabInstance: {fileID: 801179637}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &811395308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811395309}
+  m_Layer: 11
+  m_Name: spawn6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811395309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811395308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1280424333}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &817430070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
@@ -4699,7 +4734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -5042,7 +5077,7 @@ PrefabInstance:
       objectReference: {fileID: 1774709522}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 80
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
@@ -5237,7 +5272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -5725,7 +5760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553330, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -60.599995
+      value: -71.35
       objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553330, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5771,6 +5806,10 @@ PrefabInstance:
       propertyPath: orbitPoint
       value: 
       objectReference: {fileID: 1434087925}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: singleTicket
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole_END
@@ -6490,7 +6529,7 @@ PrefabInstance:
       objectReference: {fileID: 1774709522}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 80
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
@@ -6633,7 +6672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914550478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.499996, y: -2.0999985, z: -59.024384}
+  m_LocalPosition: {x: 0, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 154063831}

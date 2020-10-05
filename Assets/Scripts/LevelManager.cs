@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public Dialogue[] dialogues;
     public Transform[] dialogueTriggers;
     public Text gameOverText;
+    public Transform lastSun;
 
     private AudioSource musicSource;
     private AudioSource sfxSource;
@@ -20,12 +21,14 @@ public class LevelManager : MonoBehaviour
     private int currentLvl;
     private DialogueManager dialogueManager;
     private int lastDialog = 0;
+    private float lvlTimer = 0.0f;
 
     void Start()
     {
         var sources = GetComponents<AudioSource>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         musicSource = sources[0];
+        //PlayerPrefs.SetInt("lvl", 2);
         currentLvl = PlayerPrefs.GetInt("lvl", 1);
         // Set spawn position
         player.transform.position = new Vector3(
@@ -34,8 +37,12 @@ public class LevelManager : MonoBehaviour
             player.transform.position.z
         );
         // Load level music
-        musicSource.clip = musics[currentLvl - 1];
-        musicSource.Play();
+        if (musics.Length >= currentLvl)
+        {
+            musicSource.clip = musics[currentLvl - 1];
+            musicSource.Play();
+        }
+
         if (currentLvl == 1)
         {
             dialogueManager.StartDialogue(dialogues[0]);
@@ -58,16 +65,21 @@ public class LevelManager : MonoBehaviour
         
         if (player && player.GetComponentInParent<Planet_Behavior>())
         {
-            // Update respawn points
-            if (respawnPositions[currentLvl].parent == player.GetComponentInParent<Planet_Behavior>().gameObject.transform)
+            if (currentLvl <= respawnPositions.Length - 1)
             {
-                currentLvl += 1;
-                PlayerPrefs.SetInt("lvl", currentLvl);
-                if (musicSource.clip != musics[currentLvl - 1])
+                // Update respawn points
+                if (respawnPositions[currentLvl].parent == player.GetComponentInParent<Planet_Behavior>().gameObject.transform)
                 {
-                    musicSource.clip = musics[currentLvl - 1];
+                    currentLvl += 1;
+                    lvlTimer = Time.time;
+                    PlayerPrefs.SetInt("lvl", currentLvl);
+                    if (musicSource.clip != musics[currentLvl - 1])
+                    {
+                        musicSource.clip = musics[currentLvl - 1];
+                    }
                 }
             }
+
             // Script dialogues
             for (int i = 0; i < dialogueTriggers.Length; i++)
             {
@@ -77,7 +89,32 @@ public class LevelManager : MonoBehaviour
                     dialogueManager.StartDialogue(dialogues[i]);
                 }
             }
-            // TODO hardcode dialogues[4] + dialogues[5]
+            if (currentLvl == 6)
+            {
+                if (Vector2.Distance(player.transform.position, lastSun.position) <= 30)
+                {
+                    dialogueManager.StartDialogue(dialogues[4]);
+                    currentLvl += 1;
+                    lvlTimer = Time.time;
+                }
+            }
+            if (currentLvl == 7 && !dialogueManager.animator.GetBool("IsOpen") && Time.time - lvlTimer > 5f)
+            {
+                dialogueManager.StartDialogue(dialogues[5]);
+                currentLvl += 1;
+                lvlTimer = Time.time;
+            }
         }
     }
+
+    //public IEnumerator LastLines()
+    //{
+    //    isScreenshaking = true;
+
+    //    yield return new WaitForSeconds(0.5f);
+
+    //    isScreenshaking = false;
+
+    //    timeElapsed = 0f;
+    //}
 }

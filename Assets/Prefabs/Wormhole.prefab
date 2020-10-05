@@ -140,6 +140,7 @@ MonoBehaviour:
   target: {fileID: 0}
   orbitPoint: {fileID: 0}
   rotation: 50
+  singleTicket: 0
 --- !u!198 &326844699381415625
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4932,7 +4933,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ade6a1a378087f74fbb2391d054f17a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
