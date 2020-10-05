@@ -216,6 +216,16 @@ public class Spaceship_Behavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Orbit"))
         {
+            // Restore actual target
+            if (target)
+            {
+                Circle oldTargetOrbit = target.gameObject.GetComponentInChildren<Circle>();
+                if (oldTargetOrbit)
+                {
+                    oldTargetOrbit.SetColor(oldTargetOrbit.defaultColor);
+                }
+            }
+            // Set new target
             target = collision.gameObject.transform.parent.gameObject;
             Circle targetOrbit = collision.gameObject.GetComponent<Circle>();
             if (targetOrbit)

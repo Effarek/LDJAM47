@@ -699,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 25
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -1011,10 +1011,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308798678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 586980541}
+  m_Father: {fileID: 1461201628}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316994325
@@ -1989,12 +1989,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 851765582}
   musics:
-  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
-  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
-  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
-  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
-  - {fileID: 8300000, guid: 9a144a8c087810a4e86db5021500b20a, type: 3}
-  - {fileID: 8300000, guid: e526d553b8f91854ca8b91eb67782ad0, type: 3}
+  - {fileID: 8300000, guid: 050d2d0d54a7d424faf238d028c7f02a, type: 3}
+  - {fileID: 8300000, guid: 050d2d0d54a7d424faf238d028c7f02a, type: 3}
+  - {fileID: 8300000, guid: 050d2d0d54a7d424faf238d028c7f02a, type: 3}
+  - {fileID: 8300000, guid: 050d2d0d54a7d424faf238d028c7f02a, type: 3}
+  - {fileID: 8300000, guid: 050d2d0d54a7d424faf238d028c7f02a, type: 3}
+  - {fileID: 8300000, guid: 862a8a8a6275ee44db8c4b69e51900c1, type: 3}
   respawnPositions:
   - {fileID: 316994326}
   - {fileID: 1914550479}
@@ -3130,7 +3130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811395308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1280424333}
@@ -5272,7 +5272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 50
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -5698,6 +5698,14 @@ PrefabInstance:
       propertyPath: orbitPoint
       value: 
       objectReference: {fileID: 1270632164}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: singleTicket
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: shouldShake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole (2)
@@ -6553,6 +6561,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211387071}
     m_Modifications:
+    - target: {fileID: 4775061651008670718, guid: 1a682e943b82cf04992ad8f82ef10d3c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775061651558901353, guid: 1a682e943b82cf04992ad8f82ef10d3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4775061652328003786, guid: 1a682e943b82cf04992ad8f82ef10d3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6819,6 +6835,10 @@ PrefabInstance:
       propertyPath: orbitPoint
       value: 
       objectReference: {fileID: 1774709522}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: singleTicket
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole_IN

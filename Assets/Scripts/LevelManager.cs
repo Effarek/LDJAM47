@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         var sources = GetComponents<AudioSource>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         musicSource = sources[0];
-        //PlayerPrefs.SetInt("lvl", 2);
+        PlayerPrefs.SetInt("lvl", 6);
         currentLvl = PlayerPrefs.GetInt("lvl", 1);
         // Set spawn position
         player.transform.position = new Vector3(
@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
                     if (musicSource.clip != musics[currentLvl - 1])
                     {
                         musicSource.clip = musics[currentLvl - 1];
+                        musicSource.Play();
                     }
                 }
             }
@@ -96,6 +97,8 @@ public class LevelManager : MonoBehaviour
                     dialogueManager.StartDialogue(dialogues[4]);
                     currentLvl += 1;
                     lvlTimer = Time.time;
+                    musicSource.loop = false;
+                    //musicSource.clip = musics[5];
                 }
             }
             if (currentLvl == 7 && !dialogueManager.animator.GetBool("IsOpen") && Time.time - lvlTimer > 5f)
@@ -106,15 +109,4 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-
-    //public IEnumerator LastLines()
-    //{
-    //    isScreenshaking = true;
-
-    //    yield return new WaitForSeconds(0.5f);
-
-    //    isScreenshaking = false;
-
-    //    timeElapsed = 0f;
-    //}
 }
