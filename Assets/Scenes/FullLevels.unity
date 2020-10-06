@@ -945,6 +945,10 @@ PrefabInstance:
       propertyPath: singleTicket
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: inverteRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole
@@ -960,6 +964,14 @@ PrefabInstance:
     - target: {fileID: 6267863557491374073, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799271163770358327, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799271163770358327, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
@@ -1482,7 +1494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3515559809803063066, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Radius
-      value: 3.7
+      value: 0.35101253
       objectReference: {fileID: 0}
     - target: {fileID: 4373674218350878406, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: xRadius
@@ -1514,11 +1526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.07
+      value: 46.22
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1523403
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940457, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1562,11 +1574,11 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: -15
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: 15
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -2669,11 +2681,11 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: 20
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: -20
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -3943,11 +3955,11 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: 10
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: -15
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: isWaiting
@@ -5574,11 +5586,11 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 25
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -6678,11 +6690,11 @@ PrefabInstance:
       objectReference: {fileID: 855366223}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: rotationSpeed
-      value: -40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940458, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: orbitSpeed
-      value: 20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8177239404038940459, guid: ea269874ce65cfe4ba2d4a726638a52e, type: 3}
       propertyPath: m_Name
@@ -7538,6 +7550,10 @@ PrefabInstance:
       propertyPath: shouldShake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1173628862243553331, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: inverteRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1173628862243553340, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Name
       value: Wormhole (1)
@@ -7553,6 +7569,10 @@ PrefabInstance:
     - target: {fileID: 6267863557491374073, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799271163770358327, guid: 331aa284e381f0a428aadc82c412637f, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331aa284e381f0a428aadc82c412637f, type: 3}

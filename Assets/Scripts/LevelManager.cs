@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour
     public Transform lastSun;
 
     private AudioSource musicSource;
-    private AudioSource sfxSource;
     private bool IsGameOver = false;
     private int currentLvl;
     private DialogueManager dialogueManager;

@@ -10,6 +10,7 @@ public class Wormhole_Behavior : MonoBehaviour
     public float rotation = 50f;
     public bool singleTicket = false;
     public bool shouldShake = true;
+    public bool inverteRotation = false;
 
     private List<GameObject> travellers;
     private ParticleSystem system;
@@ -102,6 +103,11 @@ public class Wormhole_Behavior : MonoBehaviour
                 {
                     // Set new orbit
                     planet.orbitPoint = tar.orbitPoint;
+                    if (inverteRotation)
+                    {
+                        planet.orbitSpeed = -planet.orbitSpeed;
+                        planet.rotationSpeed = -planet.rotationSpeed;
+                    }
                 }
             }
 
