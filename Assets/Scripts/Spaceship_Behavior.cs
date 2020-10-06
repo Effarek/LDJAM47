@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using Unity.Mathematics;
 using UnityEngine.UI;
-using JetBrains.Annotations;
-using UnityEngine.U2D;
-using UnityEngine.Rendering;
 
 public class Spaceship_Behavior : MonoBehaviour
 {
@@ -37,6 +34,7 @@ public class Spaceship_Behavior : MonoBehaviour
     private ParticleSystem system;
     private Transform fuelBarParent;
     private bool overHeat = false;
+    private bool IsReadyTochange = false;
 
 
     // Start is called before the first frame update
@@ -59,10 +57,19 @@ public class Spaceship_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            IsReadyTochange = true;
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
+            IsReadyTochange = false;
+        }
+
         // Change orbit
         if (target && target != orbitPoint)
         {
-            if (Input.GetButtonDown("Fire1") || orbitPoint == null)
+            if (IsReadyTochange || orbitPoint == null)
             {
                 SetOrbite(target);
             }
@@ -137,7 +144,7 @@ public class Spaceship_Behavior : MonoBehaviour
 
         if (planetBehavior)
         {
-            transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + additionalSpeed) * Time.deltaTime);
+            transform.RotateAround(orbitPoint.transform.position, Vector3.back, (planetBehavior.orbitSpeed + math.sign(planetBehavior.orbitSpeed) * additionalSpeed) * Time.deltaTime);
         }
 
         // Rotation
@@ -201,6 +208,8 @@ public class Spaceship_Behavior : MonoBehaviour
         // Sound
         transferSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
         transferSource.Play();
+
+        IsReadyTochange = false;
     }
 
     public void Destroy()
