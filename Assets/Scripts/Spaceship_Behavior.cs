@@ -154,8 +154,6 @@ public class Spaceship_Behavior : MonoBehaviour
         }
 
         fuelBarParent.position = Camera.main.WorldToScreenPoint(transform.position);
-        // TODO : On laisse ou pas  ???
-        //fuelBarParent.eulerAngles = transform.eulerAngles;
         var fuelratio = fuelLevel / 100f;
         fuelBarFull.fillAmount = fuelratio;
         if (overHeat)
@@ -167,7 +165,7 @@ public class Spaceship_Behavior : MonoBehaviour
             fuelBarFull.color = new Color(1, fuelratio, fuelratio, 1);
         }
 
-        fuelBarParent.gameObject.SetActive(fuelLevel != 100f);
+        fuelBarParent.gameObject.SetActive(fuelLevel < 100f);
     }
 
     void SetOrbite(GameObject newPlanet)

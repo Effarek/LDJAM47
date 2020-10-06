@@ -2195,7 +2195,8 @@ MonoBehaviour:
     - My only hope is to send a <color=#4444FF>signal</color>...
     - '(Thank you for playing !)
 
-      (You can exit the game by pressing ESCAPE)'
+      (You can exit the game at anytime by pressing
+      ESCAPE)'
   dialogueTriggers:
   - {fileID: 1626038300}
   - {fileID: 801179638}
@@ -7010,15 +7011,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1672808316336034460, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1672808316336034460, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
       propertyPath: xRadius
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1672808316336034460, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
       propertyPath: yRadius
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3261731850585430370, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
       propertyPath: m_Enabled
@@ -7074,7 +7075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9058157941621543335, guid: fe9e317b93e67ab408b9b71795064867, type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9e317b93e67ab408b9b71795064867, type: 3}

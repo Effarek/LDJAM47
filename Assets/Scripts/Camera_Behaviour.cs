@@ -17,6 +17,7 @@ public class Camera_Behaviour : MonoBehaviour
     private bool playerParentChanged = false;
     private bool isScreenshaking = false;
     private float timeElapsed = 0f;
+    private bool isEnding = false;
 
     private float minSize = 5f;
     private float maxSize = 50f;
@@ -100,9 +101,18 @@ public class Camera_Behaviour : MonoBehaviour
             }
         }
 
+        // Camera zoom
         float size = Camera.main.orthographicSize;
+        if (isEnding)
+        {
+
+            size = Mathf.Min(size + 2f * Time.deltaTime, 200f);
+        }
+        else
+        {
         size -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         size = Mathf.Clamp(size, minSize, maxSize);
+        }
         Camera.main.orthographicSize = size;
     }
 
@@ -115,5 +125,10 @@ public class Camera_Behaviour : MonoBehaviour
         isScreenshaking = false;
 
         timeElapsed = 0f;
+    }
+
+    public void EndingDezoom(bool active)
+    {
+        isEnding = active;
     }
 }
